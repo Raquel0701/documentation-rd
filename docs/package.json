@@ -1,0 +1,19 @@
+{
+  "name": "designSystemRdDoc",
+  "version": "0.0.1",
+  "description": "Documentation componets design system rd",
+  "main": "index.js",
+  "authors": {
+    "name": "Diana Raquel",
+    "email": "drdiazt7@gmail.com"
+  },
+  "repository": "https://github.com/Raquel0701/components-rd.git/designSystemRdDoc",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  }
+}
