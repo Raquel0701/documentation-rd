@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: 'Design System RD',
+  title: 'Design System Rd',
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -38,19 +38,15 @@ module.exports = {
         link: '/guide/',
       },
       {
-        text: 'Config',
+        text: 'Components',
         link: '/config/'
       },
       {
-        text: 'Implementación',
-        link: '/config/'
+        text: 'Implementation',
+        link: 'https://v1.vuepress.vuejs.org'
       }
-      // {
-      //   text: 'VuePress',
-      //   link: 'https://v1.vuepress.vuejs.org'
-      // }
     ],
-    sidebar: {
+     sidebar: {
       '/guide/': [
         {
           title: 'Guide',
@@ -58,17 +54,11 @@ module.exports = {
           children: [
             '',
             'using-vue',
+            'epress/plugin-back-to-top',
+            '@vuepress/plugin-medium-zoom'
           ]
         }
-      ],
+      ]
     }
-  },
-
-  /**
-   * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
-   */
-  plugins: [
-    '@vuepress/plugin-back-to-top',
-    '@vuepress/plugin-medium-zoom',
-  ]
+  }
 }
