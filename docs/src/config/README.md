@@ -101,5 +101,118 @@ export default {
 
 ## Breadcrumb
 
-- Type: `string`
-- Default: `/`
+El componente `BreadcrumbRd` se utiliza para proporcionar una navegación de migas de pan, que ayuda a los usuarios a entender y explorar la estructura de navegación de un sitio web de manera eficiente.
+
+### Props
+
+- **items**: `Array`
+  - Tipo: `Array`
+  - Descripción: Un arreglo de objetos que representa cada miga de pan.
+  - Cada objeto contiene:
+    - `label`: `String` - El texto que se muestra para la miga de pan.
+    - `url`: `String` - El enlace al que dirige la miga de pan.
+
+### Ejemplo de Implementación
+
+```vue
+<template>
+  <div>
+    <BreadcrumbRd :items="breadcrumbItems" />
+  </div>
+</template>
+
+<script>
+import BreadcrumbRd from '@/components/BreadcrumbRd.vue';
+
+export default {
+  components: {
+    BreadcrumbRd
+  },
+  data() {
+    return {
+      breadcrumbItems: [
+        { label: 'Inicio', url: '/' },
+        { label: 'Sección 1', url: '/seccion1' },
+        { label: 'Página Actual', url: '/seccion1/pagina-actual' }
+      ]
+    };
+  }
+};
+</script>
+
+```
+
+
+## InputRd
+
+El componente `InputRd` es un campo de entrada personalizable que se ajusta a diferentes tamaños y ofrece variaciones de tipo para adaptarse a distintas necesidades de datos en formularios.
+
+### Props
+
+- **id**: `String`
+  - Identificador único para el elemento input y su etiqueta correspondiente.
+  
+- **label**: `String`
+  - Etiqueta descriptiva que se muestra junto al campo de entrada.
+  
+- **type**: `String`
+  - Define el tipo de input. Ejemplos comunes incluyen "text", "password", "email", etc.
+  - Valor predeterminado: `"text"`
+  
+- **placeholder**: `String`
+  - Texto de guía que se muestra en el campo de entrada cuando está vacío.
+  
+- **size**: `String`
+  - Ajusta el tamaño visual del campo de entrada.
+  - Valores posibles: `"sm"`, `"md"`, `"lg"`
+  - Valor predeterminado: `"md"`
+  - El tamaño afecta las clases CSS aplicadas para el diseño del campo.
+
+### Data
+
+- **inputValue**: `String`
+  - Modelo de datos que captura y almacena el valor ingresado por el usuario en el campo de entrada.
+
+### Computed
+
+- **computedClasses**: `String`
+  - Genera clases dinámicas basadas en la propiedad `size` para aplicar estilos específicos.
+
+### Ejemplo de Implementación
+
+```vue
+<template>
+  <div>
+    <InputRd
+      id="input-small"
+      label="Small Input"
+      type="text"
+      placeholder="Small size"
+      size="sm"
+    />
+    <InputRd
+      id="input-medium"
+      label="Medium Input"
+      type="text"
+      placeholder="Medium size"
+      size="md"
+    />
+    <InputRd
+      id="input-large"
+      label="Large Input"
+      type="text"
+      placeholder="Large size"
+      size="lg"
+    />
+  </div>
+</template>
+
+<script>
+import InputRd from '@/components/InputRd.vue';
+
+export default {
+  components: {
+    InputRd
+  }
+};
+</script>
