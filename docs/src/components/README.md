@@ -164,7 +164,6 @@ El componente `InputRd` es un campo de entrada personalizable que se ajusta a di
   
 - **size**: `String`
   - Ajusta el tamaño visual del campo de entrada.
-  - Valores posibles: `"sm"`, `"md"`, `"lg"`
   - Valor predeterminado: `"md"`
   - El tamaño afecta las clases CSS aplicadas para el diseño del campo.
 
@@ -173,37 +172,20 @@ El componente `InputRd` es un campo de entrada personalizable que se ajusta a di
 - **inputValue**: `String`
   - Modelo de datos que captura y almacena el valor ingresado por el usuario en el campo de entrada.
 
-### Computed
-
-- **computedClasses**: `String`
-  - Genera clases dinámicas basadas en la propiedad `size` para aplicar estilos específicos.
-
 ### Ejemplo de Implementación
 
 ```vue
 <template>
   <div>
-    <InputRd
+      <InputRd
       id="input-small"
       label="Small Input"
       type="text"
       placeholder="Small size"
       size="sm"
     />
-    <InputRd
-      id="input-medium"
-      label="Medium Input"
-      type="text"
-      placeholder="Medium size"
-      size="md"
-    />
-    <InputRd
-      id="input-large"
-      label="Large Input"
-      type="text"
-      placeholder="Large size"
-      size="lg"
-    />
+     Solo Style
+    <input class="input-rd input-md">
   </div>
 </template>
 
@@ -211,8 +193,161 @@ El componente `InputRd` es un campo de entrada personalizable que se ajusta a di
 import InputRd from '@/components/InputRd.vue';
 
 export default {
-  components: {
-    InputRd
+    components: {
+        InputRd
   }
 };
 </script>
+```
+
+## TextareaRd
+
+El componente `TextareaRd` proporciona un área de texto expansible para entradas de texto largo, como descripciones o comentarios. Este componente permite configurar diferentes tamaños para adaptarse a diferentes necesidades de la interfaz de usuario.
+
+### Props
+
+- **id**: `String`
+  - Identificador único para el elemento textarea y su etiqueta correspondiente.
+  
+- **label**: `String`
+  - Etiqueta descriptiva que se muestra junto al área de texto.
+  
+- **placeholder**: `String`
+  - Texto de guía que se muestra en el área de texto cuando está vacío.
+
+- **size**: `Number`
+  - Ajusta el tamaño visual del área de texto.
+  - Valores posibles: `1`, `2`, `3`, `4`
+  - Estos valores generalmente corresponden a diferentes alturas o configuraciones de estilo para el área de texto.
+
+### Ejemplo de Implementación
+
+```vue
+<template>
+  <div>
+      <TextareaRd
+      id="myTextarea1"
+      label="Descripción Pequeña"
+      placeholder="Ingresa tu descripción aquí"
+      size="1"
+    />
+    <TextareaRd
+      id="myTextarea2"
+      label="Descripción Mediana"
+      placeholder="Ingresa tu descripción aquí"
+      size="2"
+    />
+    <TextareaRd
+      id="myTextarea3"
+      label="Descripción Grande"
+      placeholder="Ingresa tu descripción aquí"
+      size="3"
+    />
+    <TextareaRd
+      id="myTextarea4"
+      label="Descripción Extra Grande"
+      placeholder="Ingresa tu descripción aquí"
+      size="4"
+    />
+  </div>
+</template>
+
+<script>
+import TextareaRd from '@/components/TextareaRd.vue';
+
+export default {
+    components: {
+        TextareaRd
+  }
+};
+</script>
+
+```
+
+
+## ModalRd
+
+El componente `ModalRd` se utiliza para mostrar una ventana modal sobre el contenido principal de la página. Este modal es flexible y permite personalizaciones en tamaño.
+
+### Props
+
+- **show**: `Boolean`
+  - **Tipo**: `Boolean`
+  - **Descripción**: Controla la visibilidad del modal.
+  - **Valor predeterminado**: `false`
+
+- **size**: `String`
+  - **Tipo**: `String`
+  - **Descripción**: Define el tamaño del modal.
+  - **Valores posibles**: `sm` (pequeño), `md` (mediano), `lg` (grande), `xl` (extra grande)
+  - **Valor predeterminado**: `md`
+
+### Eventos
+
+- **close**
+  - **Descripción**: Se emite cuando el modal se cierra, ya sea por acción del usuario o de manera programática.
+
+### Slots
+
+- **default**
+  - **Descripción**: Aquí se puede incluir cualquier contenido HTML o componentes Vue que se deseen mostrar dentro del modal.
+
+### Ejemplos de Implementación
+
+
+```vue
+<template>
+  <div>
+        <!-- Modal normal -->
+
+    <ButtonRd severity="primary" @accion="showModal = true"> Abrir Modal </ButtonRd>
+    <ModalRd :show="showModal" @close="showModal = false">
+      <h2>¡Este es un modal!</h2>
+      <p>Aquí puedes agregar cualquier contenido que desees mostrar dentro del modal.</p>
+    </ModalRd>
+
+    <!-- Modal pequeño -->
+
+    <ButtonRd severity="primary" @accion="showSmallModal = true"> Mostrar Modal Pequeño </ButtonRd>
+    <ModalRd :show="showSmallModal" :size="sizeSm" @close="showSmallModal = false">
+      <h2>¡Este es un modal!</h2>
+      Contenido del Modal Pequeño
+    </ModalRd>
+    
+    <!-- Modal grande -->
+    
+    <ButtonRd severity="primary" @accion="showLargeModal = true"> Mostrar Modal Grande </ButtonRd>
+    <ModalRd :show="showLargeModal" :size="sizeLg" @close="showLargeModal = false">
+      <h2>¡Este es un modal!</h2>
+      Contenido del Modal Grande
+    </ModalRd>
+    
+    <!-- Modal extra grande -->
+    <ButtonRd severity="primary" @accion="showExtraLargeModal = true"> Mostrar Modal Extra Grande </ButtonRd>
+    <ModalRd :show="showExtraLargeModal" :size="sizeXl" @close="showExtraLargeModal = false">
+      <h2>¡Este es un modal!</h2>
+      Contenido del Modal Extra Grande
+    </ModalRd>
+</template>
+
+<script>
+import ModalRd from '@/components/ModalRd.vue';
+import ButtonRd from '@/components/ButtonRd.vue';
+
+export default {
+    components: {
+        ModalRd,
+        ButtonRd,
+  },
+  data() {
+    return {
+      showModal: false,
+      showSmallModal: false,
+      showLargeModal: false,
+      showExtraLargeModal: false,
+    };
+  },
+};
+</script>
+
+```
