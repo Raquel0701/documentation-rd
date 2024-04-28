@@ -37,8 +37,12 @@ module.exports = {
     lastUpdated: false,
     nav: [
       {
-        text: "Guide",
+        text: "Getting Started",
         link: "/guide/",
+      },
+      {
+        text: "Design Tokens",
+        link: "/design-tokens/",
       },
       {
         text: "Components",
@@ -50,19 +54,20 @@ module.exports = {
       },
     ],
     sidebar: {
-      "/guide/": [
-        {
-          title: "Guide",
-          collapsable: true,
-          children: [
-            "",
-            "using-vue",
-            "vuepress/plugin-back-to-top",
-            "@vuepress/plugin-medium-zoom",
-          ],
-        },
-      ],
+      // "/guide/": [
+      //   {
+      //     title: "Guide",
+      //     collapsable: true,
+      //     children: [
+      //       "",
+      //       "using-vue",
+      //       "vuepress/plugin-back-to-top",
+      //       "@vuepress/plugin-medium-zoom",
+      //     ],
+      //   },
+      // ],
       "/guide/": "auto",
+      "/design-tokens/": "auto",
       "/components/": "auto",
       "/templates/": "auto",
     },
