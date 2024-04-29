@@ -52,6 +52,10 @@ module.exports = {
         text: "Templates",
         link: "/templates/",
       },
+      {
+        text: "Download",
+        link: "/download/",
+      },
     ],
     sidebar: {
       // "/guide/": [
@@ -70,6 +74,7 @@ module.exports = {
       "/design-tokens/": "auto",
       "/components/": "auto",
       "/templates/": "auto",
+      "/download/": "auto",
     },
   },
 };

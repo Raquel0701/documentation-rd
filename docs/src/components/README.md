@@ -182,7 +182,6 @@ El componente `InputRd` es un campo de entrada personalizable que se ajusta a di
       label="Small Input"
       type="text"
       placeholder="Small size"
-      size="sm"
     />
      Solo Style
     <input class="input-rd input-md">
