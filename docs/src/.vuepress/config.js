@@ -4,7 +4,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
    */
-  title: "Design System Rd",
+  title: "Design System RD",
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
@@ -48,10 +48,10 @@ module.exports = {
         text: "Components",
         link: "/components/",
       },
-      {
-        text: "Templates",
-        link: "/templates/",
-      },
+      // {
+      //   text: "Templates",
+      //   link: "/templates/",
+      // },
       {
         text: "Download",
         link: "/download/",
